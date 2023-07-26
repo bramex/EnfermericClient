@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">EnfermericClient</string>
+
+    <!-- Pantalla de login-->
+    <string name="Txt_login">LOGIN</string>
+    <string name="Txt_correo_electronico">Correo Eletrónico</string>
+    <string name="Txt_passwaord">Contraseña</string>
+    <string name="Txt_no_cuenta">¿No tiene una cuenta?</string>
+    <string name="Btn_login">INICIAR SESIÓN</string>
+    <string name="Btn_registro">REGISTRARSE</string>
+
+
 </resources>
