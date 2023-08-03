@@ -27,7 +27,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="680dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_gravity="center">
@@ -68,12 +68,13 @@
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFieldName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:textSize="13sp"
                     android:textColor="@color/white"
-                    android:hint="@string/Txt_nombre_registro"/>
+                    android:hint="@string/textFieldName"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,12 +88,13 @@
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFieldLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:textSize="13sp"
                     android:textColor="@color/white"
-                    android:hint="@string/Txt_apellido_registro"/>
+                    android:hint="@string/textFieldLastName"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,16 +108,17 @@
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFieldPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:textSize="13sp"
                     android:textColor="@color/white"
-                    android:hint="@string/Txt_telefono_registro"/>
+                    android:hint="@string/textFieldPhone"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Text Input del correo de usuario -->
+            <!-- Text Input del Correo de usuario -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,12 +128,13 @@
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFieldEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:textSize="13sp"
                     android:textColor="@color/white"
-                    android:hint="@string/Txt_correo_electronico"/>
+                    android:hint="@string/textFieldEmail"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,19 +148,42 @@
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFieldPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:textSize="13sp"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/white"
-                    android:hint="@string/Txt_password"/>
+                    android:hint="@string/textFieldPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Text Inpunt Confirmar Contraseña -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                app:startIconDrawable="@drawable/ic_lock_white"
+                app:startIconTint="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFieldConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textSize="13sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:hint="@string/textFieldConfirmPassword"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Botón registrase -->
             <Button
-                android:text="@string/Btn_registrarse"
+                android:id="@+id/btnRegister"
+                android:text="@string/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"

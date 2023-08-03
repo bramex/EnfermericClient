@@ -15,9 +15,11 @@
     <string name="BtnGoToLogin">INICIAR SESIÓN</string>
     <string name="Txt_ya_tiene_cuenta">¿Ya tiene una cuenta?</string>
 
-    <string name="Txt_nombre_registro">Nombre</string>
-    <string name="Txt_apellido_registro">Apellido</string>
-    <string name="Txt_telefono_registro">Teléfono</string>
+    <string name="textFieldName">Nombre</string>
+    <string name="textFieldLastName">Apellido</string>
+    <string name="textFieldPhone">Teléfono</string>
+    <string name="textFieldConfirmPassword">Confirmar contraseña</string>
+    <string name="btnRegister">REGISTRARSE</string>
     <string name="Txt_correo_electronico">Teléfono</string>
     <string name="Txt_password">Contraseña</string>
 

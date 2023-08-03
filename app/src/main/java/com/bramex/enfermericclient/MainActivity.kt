@@ -30,7 +30,23 @@ class MainActivity : AppCompatActivity() {
     private fun login(){
         val email = binding.textFieldEmail.text.toString()
         val password = binding.textFieldPassword.text.toString()
+        
+        if (isValidForm(email, password)){
+            Toast.makeText(this, "Formulario válido", Toast.LENGTH_SHORT).show()
+        }
 
+    }
+
+    private fun isValidForm(email: String, password: String): Boolean {
+        if (email.isEmpty()){
+            Toast.makeText(this, "Por favor ingrese su correo electrónico", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (password.isEmpty()){
+            Toast.makeText(this, "Por favor ingrese su contraseña", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
     }
 
     private fun goToRegister(){
