@@ -1,16 +1,17 @@
-package com.bramex.enfermericclient
+package com.bramex.enfermericclient.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
-import com.bramex.enfermericclient.databinding.ActivityMainBinding
 import com.bramex.enfermericclient.databinding.ActivityRegisterBinding
+import com.bramex.enfermericclient.providers.AuthProvider
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private val authProvider = AuthProvider()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +34,14 @@ class RegisterActivity : AppCompatActivity() {
         val confirmPassword = binding.textFieldConfirmPassword.text.toString()
         
         if (isValidForm(name, lastName, phone, email, password, confirmPassword)){
-            Toast.makeText(this, "El formulario es válido", Toast.LENGTH_SHORT).show()
+            authProvider.register(email, password).addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(this@RegisterActivity, "Registro de usuario existoso", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(this@RegisterActivity, "Registro fallido ${it.exception.toString()}", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 

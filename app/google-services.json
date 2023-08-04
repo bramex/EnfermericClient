@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "638755725468",
+    "project_id": "enfermericclient",
+    "storage_bucket": "enfermericclient.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638755725468:android:b2cb0e52f073c77e8acd59",
+        "android_client_info": {
+          "package_name": "com.bramex.enfermericclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638755725468-tti5dmistqohh3uuvmgop92huka2ggpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-babNXi787N5QVnFyQFT4rX2qlhJRSuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638755725468-tti5dmistqohh3uuvmgop92huka2ggpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,11 +1,9 @@
-package com.bramex.enfermericclient
+package com.bramex.enfermericclient.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.Toast
 import com.bramex.enfermericclient.databinding.ActivityMainBinding
 
