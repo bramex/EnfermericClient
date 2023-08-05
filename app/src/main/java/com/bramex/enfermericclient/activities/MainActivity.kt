@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
 import com.bramex.enfermericclient.databinding.ActivityMainBinding
+import com.bramex.enfermericclient.providers.AuthProvider
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    val authProvider = AuthProvider()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +32,22 @@ class MainActivity : AppCompatActivity() {
         val password = binding.textFieldPassword.text.toString()
         
         if (isValidForm(email, password)){
-            Toast.makeText(this, "Formulario válido", Toast.LENGTH_SHORT).show()
+            authProvider.login(email, password).addOnCompleteListener {
+                if (it.isSuccessful){
+                    goToMap()
+                }
+                else{
+                    Toast.makeText(this@MainActivity, "Error al iniciar sesión", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
+    }
+
+    private fun goToMap(){
+        val i = Intent(this, MapActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(i)
     }
 
     private fun isValidForm(email: String, password: String): Boolean {
@@ -50,6 +65,15 @@ class MainActivity : AppCompatActivity() {
     private fun goToRegister(){
         val i = Intent(this, RegisterActivity::class.java)
         startActivity(i)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if (authProvider.existSession()){
+            goToMap()
+        }
+
     }
 
 }

@@ -49,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
                     clientProvider.create(client).addOnCompleteListener {
                         if (it.isSuccessful){
                             Toast.makeText(this@RegisterActivity, "Registro de usuario exitoso", Toast.LENGTH_SHORT).show()
+                            goToMap()
                         }
                         else{
                             Toast.makeText(this@RegisterActivity, "Error en el almacenamiento de los datos de usuario!!!${it.exception.toString()}", Toast.LENGTH_LONG).show()
@@ -60,6 +61,12 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun goToMap(){
+        val i = Intent(this, MapActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(i)
     }
 
     private fun isValidForm(
