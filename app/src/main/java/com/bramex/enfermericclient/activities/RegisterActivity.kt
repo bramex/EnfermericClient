@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
 import com.bramex.enfermericclient.databinding.ActivityRegisterBinding
+import com.bramex.enfermericclient.models.Client
 import com.bramex.enfermericclient.providers.AuthProvider
+import com.bramex.enfermericclient.providers.ClientProvider
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private val authProvider = AuthProvider()
+    private val clientProvider = ClientProvider()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +39,21 @@ class RegisterActivity : AppCompatActivity() {
         if (isValidForm(name, lastName, phone, email, password, confirmPassword)){
             authProvider.register(email, password).addOnCompleteListener {
                 if (it.isSuccessful){
-                    Toast.makeText(this@RegisterActivity, "Registro de usuario existoso", Toast.LENGTH_SHORT).show()
+                    val client = Client(
+                        id = authProvider.getId(),
+                        name = name,
+                        lastname = lastName,
+                        phone = phone,
+                        email = email
+                    )
+                    clientProvider.create(client).addOnCompleteListener {
+                        if (it.isSuccessful){
+                            Toast.makeText(this@RegisterActivity, "Registro de usuario exitoso", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            Toast.makeText(this@RegisterActivity, "Error en el almacenamiento de los datos de usuario!!!${it.exception.toString()}", Toast.LENGTH_LONG).show()
+                        }
+                    }
                 }
                 else{
                     Toast.makeText(this@RegisterActivity, "Registro fallido ${it.exception.toString()}", Toast.LENGTH_SHORT).show()
